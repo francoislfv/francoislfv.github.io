@@ -100,7 +100,7 @@ body {
 
 .wave {
     display: inline-block;
-    animation: wave 5s infinite;
+    animation: wave 3s infinite;
 }
 
 @keyframes wave {
@@ -235,9 +235,29 @@ body {
 .project-image {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
+.scrollable-container {
+    width: 357px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.scrollable-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    height: auto;
+    object-fit: fill;
+    transition: transform 10s ease;
+}
+
+.scrollable-container:hover img {
+    transform: translateY(-75%);
+}
 .project-title {
     color: #ffffff;
     font-size: 1.5rem;
@@ -256,6 +276,8 @@ body {
     flex-wrap: wrap;
     gap: 0.5rem;
     padding: 1rem;
+    justify-content: center;
+    text-align: center;
 }
 
 .project-tag {
