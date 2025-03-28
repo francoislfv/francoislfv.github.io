@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - FrancoisLFV</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <script src="./js/combined.min.js"></script>
+    <link rel="stylesheet" href="./styles/styles.css">
     <link rel="icon" href="./images/logo-Photoroom.png">
-    <link rel="preload" href="./styles/styles.min.css" as="style">
     <link rel="preload" href="./js/combined.min.js" as="script">
+    <script src="./js/combined.min.js" defer></script>
 </head>
 <body>
     <div class="header">
@@ -21,7 +20,7 @@
                 <li><a href="#home">_home</a></li>
                 <li><a href="#about">_about</a></li>
                 <li><a href="#projects">_projects</a></li>
-                <li><a href="./pages/contact.html" target="_blank">_resume</a></li>
+                <li><a href="./pages/contact.html">_resume</a></li>
             </ul>
         </nav>
     </div>
@@ -69,7 +68,10 @@
             </div>
     
             <div class="project">
-                <img src="images/foodscan_landing.webp" loading="lazy" alt="FoodScanAI" class="project-image">
+                <img src="./images/foodscan_landing.webp" loading="lazy" 
+                     srcset="./images/foodscan_landing.webp 800w"
+                     sizes="(max-width: 768px) 100vw, 800px"
+                     alt="FoodScanAI" class="project-image">
                 <h3 class="project-title">FoodScanAI</h3>
                 <p class="project-description">
                     Projet d'études : Application web de reconnaissance de fraîcheur des aliments.
@@ -83,7 +85,7 @@
             </div>
     
             <div class="project">
-                <img src="images/hyrule_game_terminal.webp" loading="lazy" alt="terminal game hyrule castle" class="project-image">
+                <img src="./images/hyrule_game_terminal.webp" loading="lazy" alt="terminal game hyrule castle" class="project-image">
                 <h3 class="project-title">Hyrule Castle Game</h3>
                 <p class="project-description">
                     Projet personnel : Jeu en terminal inspiré de l'univers de Zelda.
@@ -95,6 +97,5 @@
             </div>
         </div>
     </section>
-    
 </body>
 </html>

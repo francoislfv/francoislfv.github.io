@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');
 
 * {
     margin: 0;
@@ -30,11 +30,6 @@ body {
 
 .nav-toggle {
     display: none;
-}
-
-.hamburger {
-    display: block;
-    position: relative;
 }
 
 .hamburger,
@@ -90,7 +85,7 @@ body {
     color: #ffffff;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     font-weight: lighter;
 }
 
@@ -101,17 +96,18 @@ body {
 .wave {
     display: inline-block;
     animation: wave 3s infinite;
+    transform-origin: 70% 70%;
+    will-change: transform;
 }
 
 @keyframes wave {
-    0% { transform: rotate(0deg); }
-    5% { transform: rotate(14deg); }
-    10% { transform: rotate(-8deg); }
-    15% { transform: rotate(14deg); }
-    20% { transform: rotate(-4deg); }
-    25% { transform: rotate(10deg); }
-    30% { transform: rotate(0deg); }
-    100% { transform: rotate(0deg); }
+    0%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
 }
 
 #anim_text {
@@ -126,10 +122,10 @@ body {
     max-width: 800px;
     margin: 5% auto 0 auto;
     padding: 4rem 2rem;
-    text-align: center; /* Ajouté pour centrer le titre */
+    text-align: center;
 }
 
-#about h2 {
+#about h2, #projects h2 {
     color: #ffffff;
     font-size: 2.5rem;
     text-align: center;
@@ -137,10 +133,10 @@ body {
     position: relative;
     font-weight: lighter;
     display: inline-block;
-    padding: 0 3rem; /* Ajouté pour l'espace des accolades */
+    padding: 0 3rem;
 }
 
-#about h2::before {
+#about h2::before, #projects h2::before {
     content: "{";
     color: #E6DB74;
     font-size: 3rem;
@@ -148,7 +144,7 @@ body {
     left: 0;
 }
 
-#about h2::after {
+#about h2::after, #projects h2::after {
     content: "}";
     color: #E6DB74;
     font-size: 3rem;
@@ -177,34 +173,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 2rem;
-    text-align: center; /* Ajouté pour centrer le titre */
-}
-
-#projects h2 {
-    color: #ffffff;
-    font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 2rem;
-    position: relative;
-    font-weight: lighter;
-    display: inline-block;
-    padding: 0 3rem; /* Ajouté pour l'espace des accolades */
-}
-
-#projects h2::before {
-    content: "{";
-    color: #E6DB74;
-    font-size: 3rem;
-    position: absolute;
-    left: 0;
-}
-
-#projects h2::after {
-    content: "}";
-    color: #E6DB74;
-    font-size: 3rem;
-    position: absolute;
-    right: 0;
 }
 
 .portfolio-intro {
@@ -235,11 +204,10 @@ body {
 .project-image {
     width: 100%;
     height: 200px;
-    /* object-fit: cover; */
 }
 
 .scrollable-container {
-    width: 357px;
+    width: 100%;
     height: 200px;
     overflow: hidden;
     position: relative;
@@ -249,15 +217,17 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    /* width: 100%; */
     height: auto;
     object-fit: fill;
-    transition: transform 10s ease;
+    transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .scrollable-container:hover img {
     transform: translateY(-75%);
+    transition: transform 10s ease;
 }
+
 .project-title {
     color: #ffffff;
     font-size: 1.5rem;
@@ -277,7 +247,6 @@ body {
     gap: 0.5rem;
     padding: 1rem;
     justify-content: center;
-    text-align: center;
 }
 
 .project-tag {
@@ -303,17 +272,6 @@ body {
     background: rgba(230, 219, 116, 0.2);
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .nav-toggle {
@@ -333,6 +291,7 @@ footer {
         padding: 4rem 2rem 2rem;
         transform: translateY(-100%);
         transition: transform 0.3s ease;
+        z-index: 10;
     }
     
     .nav.active {
@@ -358,7 +317,9 @@ footer {
     }
     
     #about h2::before,
-    #about h2::after {
+    #about h2::after,
+    #projects h2::before,
+    #projects h2::after {
         display: none;
     }
 
@@ -373,10 +334,5 @@ footer {
 
     #projects {
         padding: 2rem 1rem;
-    }
-
-    #projects h2::before,
-    #projects h2::after {
-        display: none;
     }
 }
